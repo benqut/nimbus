@@ -118,7 +118,7 @@ if [ $1 = "safemode" ]; then
 fi
 if [ $1 = "tone" ]; then
  activator send libactivator.ringtone.system:Marimba
- echo PLaying ringtone Marimba
+ echo PLaying ringtone 
 fi
 if [ $1 = "tone" ]; then
  activator send libactivator.ringtone.system:$2
@@ -151,4 +151,7 @@ fi
 if [ $1 = "hotspot-on" ]; then
  activator send switch-on.com.a3tweaks.switch.hotspot
  echo Turning mobile hotspot on
+fi
+if [ -z $1 ]; then
+ echo You must specify a command, type "nimbus help" for a list of commands
 fi
