@@ -100,6 +100,7 @@ if [ $1 = "help" ]; then
  echo respring - resprings
  echo safemode - enters safe mode
  echo tone ringtone - plays ringtone on phone 
+ echo tone-text ringtone - plays text tone on phone 
  echo vpn-on - activates vpn 
  echo vpn-on - activates vpn 
  echo torch - turns torch on/off
@@ -120,8 +121,11 @@ if [ $1 = "tone" ]; then
  activator send libactivator.ringtone.system:Marimba
 fi
 if [ $1 = "tone" ]; then
- activator send libactivator.ringtone.system:$2 
- activator send libactivator.ringtone.texttone:$2 
+ activator send libactivator.ringtone.system:$2  
+ echo PLaying ringtone $2
+fi
+if [ $1 = "tone-text" ]; then
+ activator send libactivator.ringtone.texttone:$2  
  echo PLaying ringtone $2
 fi
 if [ $1 = "vpn-on" ]; then
