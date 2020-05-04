@@ -1,4 +1,4 @@
-if [ $1 = "powerbutton" ]; then
+if [ $1 = "sleep" ]; then
  activator send libactivator.system.sleepbutton
  echo Power button press simulated.
 fi
@@ -46,11 +46,11 @@ if [ $1 = "nc" ]; then
  activator send libactivator.system.activate-notification-center
  echo Notification Center opened.
 fi
-if [ $1 = "answer-call" ]; then
+if [ $1 = "answer" ]; then
  activator send libactivator.phone.answer-call
  echo Call answered.
 fi
-if [ $1 = "decline-call" ]; then
+if [ $1 = "decline" ]; then
  activator send libactivator.phone.disconnect-call
  echo Call declined.
 fi
@@ -74,10 +74,6 @@ if [ $1 = "spotlight" ]; then
  activator send libactivator.system.spotlight
  echo Spotlight opened.
 fi
-if [ $1 = "safe-mode" ]; then
- activator send libactivator.system.safemode
- echo Safe mode activated.
-fi
 if [ $1 = "powerdown" ]; then
  activator send libactivator.system.powerdown
  echo Device turned off.
@@ -94,12 +90,61 @@ if [ $1 = "help" ]; then
  echo increase or decrease - audio or brightness - increase or decrease audio or brightness - ex. - increase-brightness.
  echo switcher - opens app switcher.
  echo nc - opens Notification Center.
- echo answer or decline - call - answer or decline a call - ex. answer-call.
+ echo answer or decline - answer or decline a call - ex. answer-call.
  echo first-homepage - opens first srpingboard page.
  echo power-menu - opens the power menu.
  echo siri - opens Siri.
- echo clear-swither - clise all apps from the app switcher.
+ echo clear-swither - close all apps from the app switcher.
  echo spotlight - opens Spotlight.
- echo safe-mode - launches springboard in safe mode.
  echo powerdown - turns off the device.
+ echo respring - resprings
+ echo safemode - enters safe mode
+ echo tone - plays ringtone on phone 
+ echo vpn-on - activates vpn 
+ echo vpn-on - activates vpn 
+ echo torch - turns torch on/off
+ echo ringer-on - turns ringer on
+ echo ringer-off turns ringer off
+ echo hotspot-on - turns mobile hotspot on
+ echo hotspot-off - turns mobile hotspot off
+fi
+if [ $1 = "respring" ]; then
+ activator send libactivator.system.respring
+ echo respringing
+fi
+if [ $1 = "safemode" ]; then
+ activator send libactivator.system.safemode
+ echo respringing into safe mode
+fi
+if [ $1 = "tone" ]; then
+ activator send libactivator.ringtone.system:Marimba
+ echo PLaying ringtone Marimba
+fi
+if [ $1 = "vpn-on" ]; then
+ activator send switch-on.com.a3tweaks.switch.vpn
+ echo Activating/Disactivating vpn 
+fi
+if [ $1 = "vpn-off" ]; then
+ activator send switch-off.com.a3tweaks.switch.vpn
+ echo Activating/Disactivating vpn 
+fi
+if [ $1 = "torch" ]; then
+ activator send switch-flip.com.a3tweaks.switch.flashlight
+ echo Turning torch on/off
+fi
+if [ $1 = "ringer-off" ]; then
+ activator send switch-off.com.a3tweaks.switch.ringer
+ echo Turning ringer off
+fi
+if [ $1 = "ringer-on" ]; then
+ activator send switch-on.com.a3tweaks.switch.ringer
+ echo Turning ringer on
+fi
+if [ $1 = "hotspot-off" ]; then
+ activator send switch-off.com.a3tweaks.switch.hotspot
+ echo Turning mobile hotspot off
+fi
+if [ $1 = "hotspot-on" ]; then
+ activator send switch-on.com.a3tweaks.switch.hotspot
+ echo Turning mobile hotspot on
 fi
