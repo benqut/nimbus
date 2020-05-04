@@ -101,13 +101,10 @@ if [ $1 = "help" ]; then
  echo safemode - enters safe mode
  echo tone ringtone - plays ringtone on phone 
  echo tone-text ringtone - plays text tone on phone 
- echo vpn-on - activates vpn 
- echo vpn-on - activates vpn 
+ echo vpn on/off - activates vpn 
  echo torch - turns torch on/off
- echo ringer-on - turns ringer on
- echo ringer-off turns ringer off
- echo hotspot-on - turns mobile hotspot on
- echo hotspot-off - turns mobile hotspot off
+ echo ringer on/off - turns ringer on
+ echo hotspot on/off - turns mobile hotspot on
 fi
 if [ $1 = "respring" ]; then
  activator send libactivator.system.respring
@@ -127,33 +124,22 @@ fi
 if [ $1 = "tone-text" ]; then
  activator send libactivator.ringtone.texttone:$2   
  echo PLaying ringtone $2
-if [ $1 = "vpn-on" ]; then
- activator send switch-on.com.a3tweaks.switch.vpn
- echo Activating/Disactivating vpn 
 fi
-if [ $1 = "vpn-off" ]; then
- activator send switch-off.com.a3tweaks.switch.vpn
- echo Activating/Disactivating vpn 
+if [ $1 = "vpn" ]; then
+ activator send switch-$2.com.a3tweaks.switch.vpn
+ echo turning vpn $2 
 fi
 if [ $1 = "torch" ]; then
  activator send switch-flip.com.a3tweaks.switch.flashlight
  echo Turning torch on/off
 fi
-if [ $1 = "ringer-off" ]; then
- activator send switch-off.com.a3tweaks.switch.ringer
- echo Turning ringer off
+if [ $1 = "ringer" ]; then
+ activator send switch-$2.com.a3tweaks.switch.ringer
+ echo Turning ringer $2
 fi
-if [ $1 = "ringer-on" ]; then
- activator send switch-on.com.a3tweaks.switch.ringer
- echo Turning ringer on
-fi
-if [ $1 = "hotspot-off" ]; then
- activator send switch-off.com.a3tweaks.switch.hotspot
- echo Turning mobile hotspot off
-fi
-if [ $1 = "hotspot-on" ]; then
- activator send switch-on.com.a3tweaks.switch.hotspot
- echo Turning mobile hotspot on
+if [ $1 = "hotspot" ]; then
+ activator send switch-$2.com.a3tweaks.switch.hotspot
+ echo Turning mobile hotspot $2
 fi
 if [ -z $1 ]; then
  echo You must specify a command, type "nimbus help" for a list of commands
