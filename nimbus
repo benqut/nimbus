@@ -121,11 +121,8 @@ if [ $1 = "tone" ]; then
  activator send libactivator.ringtone.system:Marimba
 fi
 if [ $1 = "tone" ]; then
- activator send libactivator.ringtone.system:$2  
- echo PLaying ringtone $2
-fi
-if [ $1 = "tone-text" ]; then
- activator send libactivator.ringtone.texttone:$2  
+ activator send libactivator.ringtone.system:$2 
+ activator send libactivator.ringtone.texttone:$2   
  echo PLaying ringtone $2
 fi
 if [ $1 = "vpn-on" ]; then
