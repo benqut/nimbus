@@ -32,11 +32,11 @@ if [ $1 = "decrease-brightness" ]; then
 fi
 if [ $1 = "increase-brightness" ]; then
  activator send libactivator.screen.brightness.increase
- echo Volume increased.
+ echo Brightness increased.
 fi
 if [ $1 = "decrease-audio" ]; then
  activator send libactivator.audio.decrease-volume
- echo Brightness decreased.
+ echo Volume decreased.
 fi
 if [ $1 = "switcher" ]; then
  activator send libactivator.system.activate-switcher
@@ -122,7 +122,7 @@ if [ $1 = "tone" ]; then
 fi
 if [ $1 = "tone" ]; then
  activator send libactivator.ringtone.system:$2
- echo PLaying ringtone Marimba
+ echo PLaying ringtone $2
 fi
 if [ $1 = "vpn-on" ]; then
  activator send switch-on.com.a3tweaks.switch.vpn
