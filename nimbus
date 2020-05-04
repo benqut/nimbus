@@ -129,6 +129,9 @@ if [ $1 = "vpn" ]; then
  activator send switch-$2.com.a3tweaks.switch.vpn
  echo turning vpn $2 
 fi
+if [ $1 = "vpn" -z $2 ]; then
+ echo You must specify "on" or "off
+fi
 if [ $1 = "torch" ]; then
  activator send switch-flip.com.a3tweaks.switch.flashlight
  echo Turning torch on/off
@@ -137,9 +140,15 @@ if [ $1 = "ringer" ]; then
  activator send switch-$2.com.a3tweaks.switch.ringer
  echo Turning ringer $2
 fi
+if [ $1 = "ringer" -z $2 ]; then
+ echo You must specify "on" or "off
+fi
 if [ $1 = "hotspot" ]; then
  activator send switch-$2.com.a3tweaks.switch.hotspot
  echo Turning mobile hotspot $2
+fi
+if [ $1 = "hotspot" -z $2 ]; then
+ echo You must specify "on" or "off
 fi
 if [ -z $1 ]; then
  echo You must specify a command, type "nimbus help" for a list of commands
