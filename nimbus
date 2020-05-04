@@ -81,7 +81,7 @@ fi
 if [ $1 = "help" ]; then
  echo Usage: nimbus action
  echo List of actions:
- echo powerbutton - simulate power button press.
+ echo sleep - simulate power button press.
  echo home - simulate homebutton press.
  echo open app.bundle.id - open app with specified bundle ID.
  echo settings preference panel name - open specified preference panel in settings.
