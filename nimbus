@@ -98,6 +98,7 @@ if [ $1 = "help" ]; then
  echo torch - turns torch on/off
  echo ringer on/off - turns ringer on
  echo hotspot on/off - turns mobile hotspot on
+ echo back - go back one screen
  echo unlock - unlocks device, requires com.giorgioiavicoli.passby
 fi
 if [ $1 = "respring" ]; then
@@ -138,6 +139,10 @@ fi
 if [ $1 = "unlock" ]; then
  activator send com.giorgioiavicoli.passby.unlock
  echo Unlocking device
+fi
+if [ $1 = "back" ]; then
+ activator send libactivator.system.back
+ echo Went back
 fi
 if [ -z $1 ]; then
  echo You must specify a command, type "nimbus help" for a list of commands
