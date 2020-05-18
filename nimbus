@@ -51,10 +51,6 @@ if [ $1 = "first-homepage" ]; then
  activator send libactivator.system.first-springboard-page
  echo First homescreen page opened.
 fi
-if [ $1 = "power-menu" ]; then
- activator send libactivator.system.power-menu
- echo Power menu opened.
-fi
 if [ $1 = "siri" ]; then
  activator send libactivator.system.virtual-assistant
  echo Siri opened.
@@ -66,10 +62,6 @@ fi
 if [ $1 = "spotlight" ]; then
  activator send libactivator.system.spotlight
  echo Spotlight opened.
-fi
-if [ $1 = "powerdown" ]; then
- activator send libactivator.system.powerdown
- echo Device turned off.
 fi
 if [ $1 = "help" ]; then
  echo Usage: nimbus action
@@ -85,13 +77,9 @@ if [ $1 = "help" ]; then
  echo nc - opens Notification Center.
  echo answer or decline - answer or decline a call - ex. answer-call.
  echo first-homepage - opens first srpingboard page.
- echo power-menu - opens the power menu.
  echo siri - opens Siri.
  echo clear-swither - close all apps from the app switcher.
- echo spotlight - opens Spotlight.
- echo powerdown - turns off the device.
- echo respring - resprings
- echo safemode - enters safe mode
+ echo spotlight - opens Spotlight
  echo tone ringtone - plays ringtone on phone 
  echo tone-text ringtone - plays text tone on phone 
  echo vpn on/off - activates vpn 
@@ -100,14 +88,6 @@ if [ $1 = "help" ]; then
  echo hotspot on/off - turns mobile hotspot on
  echo back - go back one screen
  echo unlock - unlocks device, requires com.giorgioiavicoli.passby
-fi
-if [ $1 = "respring" ]; then
- activator send libactivator.system.respring
- echo respringing
-fi
-if [ $1 = "safemode" ]; then
- activator send libactivator.system.safemode
- echo respringing into safe mode
 fi
 if [ $1 = "tone" ]; then
  activator send libactivator.ringtone.system:Marimba
