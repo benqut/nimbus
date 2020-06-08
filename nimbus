@@ -75,28 +75,25 @@ if [ $1 = "help" ]; then
  echo vol/brightness increase/decrease - increase or decrease audio or brightness
  echo switcher - opens app switcher.
  echo nc - opens Notification Center.
- echo answer or decline - answer or decline a call - ex. answer-call.
+ echo answer or decline - answer or decline a call
  echo first-homepage - opens first srpingboard page.
  echo siri - opens Siri.
  echo clear-swither - close all apps from the app switcher.
  echo spotlight - opens Spotlight
- echo tone ringtone - plays ringtone on phone 
- echo tone-text ringtone - plays text tone on phone 
+ echo ringtone (followed by name) - plays ringtone on phone 
+ echo texttone (followed by name) - plays text tone on phone 
  echo vpn on/off - activates vpn 
  echo torch - turns torch on/off
  echo ringer on/off - turns ringer on
  echo hotspot on/off - turns mobile hotspot on
  echo back - go back one screen
- echo unlock - unlocks device, requires com.giorgioiavicoli.passby
+ echo unlock - unlocks device,
 fi
-if [ $1 = "tone" ]; then
- activator send libactivator.ringtone.system:Marimba
-fi
-if [ $1 = "tone" ]; then
+if [ $1 = "ringtone" ]; then
  activator send libactivator.ringtone.system:$2    
  echo PLaying ringtone $2
 fi
-if [ $1 = "tone-text" ]; then
+if [ $1 = "texttone" ]; then
  activator send libactivator.ringtone.texttone:$2   
  echo PLaying ringtone $2
 fi
