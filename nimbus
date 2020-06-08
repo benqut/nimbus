@@ -80,8 +80,8 @@ if [ $1 = "help" ]; then
  echo siri - opens Siri.
  echo clear-swither - close all apps from the app switcher.
  echo spotlight - opens Spotlight
- echo ringtone (followed by name) - plays ringtone on phone 
- echo texttone (followed by name) - plays text tone on phone 
+ echo ringtone - plays chosen ringtone on phone 
+ echo texttone - plays chosen text tone on phone 
  echo vpn on/off - activates vpn 
  echo torch - turns torch on/off
  echo ringer on/off - turns ringer on
