@@ -5,3 +5,5 @@ Controlling: type "nimbus help" in the on-device terminal emulator or from SSH f
 I (SarKaa/Watking01) have added some flipswitch commands, like torch, hotspot, and more. I have also added a command for unlocking the device with the tweak passby, which should be installed from the bigboss repo in order for the unlock feature to work
 
 Passby tweak:https://moreinfo.thebigboss.org/moreinfo/depiction.php?file=passbyDp
+
+Available on my repo : https://sarkaa.github.io/
