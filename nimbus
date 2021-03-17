@@ -1,67 +1,99 @@
 #!/bin/bash
+if [ -z $1 ]; then
+ echo You must specify a command, type "nimbus help" for a list of commands
+ exit 1
+fi
 if [ $1 = "sleep" ]; then
  activator send libactivator.system.sleepbutton
  echo Power button press simulated.
+ exit 1
 fi
 if [ $1 = "home" ]; then
  activator send libactivator.system.homebutton
  echo Home button press simulated.
+ exit 1
 fi
 if [ $1 = "open" ]; then
  activator send $2
  echo App opened.
+ exit 1
 fi
 if [ $1 = "settings" ]; then
+if [ -z $2 ]; then
+ echo You must specify another argument, see the help command for more info
+ exit 1
+fi
  activator send libactivator.settings.$2
  echo Preference page opened.
+ exit 1
 fi
 if [ $1 = "cc" ]; then
  activator send libactivator.system.activate-control-center
-echo Control Center opened.
+ echo Control Center opened.
+ exit 1
 fi
 if [ $1 = "screenshot" ]; then
  activator send libactivator.system.take-screenshot
  echo Screenshot saved in gallery.
+ exit 1
 fi
 if [ $1 = "vol" ]; then
+if [ -z $2 ]; then
+ echo You must specify another argument, increase or decrease
+ exit 1
+fi
  activator send libactivator.audio.$2-volume
  echo Volume changed
+ exit 1
 fi
 if [ $1 = "brightness" ]; then
+if [ -z $2 ]; then
+ echo You must specify another argument, increase or decrease
+ exit 1
+fi
  activator send libactivator.screen.brightness.$2
  echo Brightness changed
+ exit 1
 fi
 if [ $1 = "switcher" ]; then
  activator send libactivator.system.activate-switcher
  echo Switcher activated.
+ exit 1
 fi
 if [ $1 = "nc" ]; then
  activator send libactivator.system.activate-notification-center
  echo Notification Center opened.
+ exit 1
 fi
 if [ $1 = "answer" ]; then
  activator send libactivator.phone.answer-call
  echo Call answered.
+ exit 1
 fi
 if [ $1 = "decline" ]; then
  activator send libactivator.phone.disconnect-call
  echo Call declined.
+ exit 1
 fi
 if [ $1 = "first-homepage" ]; then
  activator send libactivator.system.first-springboard-page
  echo First homescreen page opened.
+ exit 1
 fi
 if [ $1 = "siri" ]; then
  activator send libactivator.system.virtual-assistant
  echo Siri opened.
+ exit 1
 fi
 if [ $1 = "clear-switcher" ]; then
  activator send libactivator.system.clear-switcher
  echo App Switcher cleared.
+ exit 1
 fi
 if [ $1 = "spotlight" ]; then
  activator send libactivator.system.spotlight
  echo Spotlight opened.
+ exit 1
 fi
 if [ $1 = "help" ]; then
  echo Usage: nimbus action
@@ -87,40 +119,108 @@ if [ $1 = "help" ]; then
  echo ringer on/off - turns ringer on
  echo hotspot on/off - turns mobile hotspot on
  echo back - go back one screen
- echo unlock - unlocks device,
+ echo unlock - unlocks device
+ echo current-app - gets current open app
+ echo media - media controls, type nimbus media help for more info
+ exit 1
 fi
 if [ $1 = "ringtone" ]; then
+if [ -z $2 ]; then
+ echo You must specify another argument, the name of the ringtone
+ exit 1
+fi
  activator send libactivator.ringtone.system:$2    
  echo PLaying ringtone $2
+ exit 1
 fi
 if [ $1 = "texttone" ]; then
+if [ -z $2 ]; then
+ echo You must specify another argument, the name of the texttone
+ exit 1
+fi
  activator send libactivator.ringtone.texttone:$2   
  echo PLaying ringtone $2
+ exit 1
 fi
 if [ $1 = "vpn" ]; then
+if [ -z $2 ]; then
+ echo You must specify another argument, on or off
+ exit 1
+fi
  activator send switch-$2.com.a3tweaks.switch.vpn
  echo turning vpn $2 
+ exit 1
 fi
 if [ $1 = "torch" ]; then
  activator send switch-flip.com.a3tweaks.switch.flashlight
- echo Turning torch on/off
+ echo Toggling torch 
+ exit 1
 fi
 if [ $1 = "ringer" ]; then
+if [ -z $2 ]; then
+ echo You must specify another argument, on or off
+ exit 1
+fi
  activator send switch-$2.com.a3tweaks.switch.ringer
  echo Turning ringer $2
+ exit 1
 fi
 if [ $1 = "hotspot" ]; then
+if [ -z $2 ]; then
+ echo You must specify another argument, on or off
+ exit 1
+fi
  activator send switch-$2.com.a3tweaks.switch.hotspot
  echo Turning mobile hotspot $2
+ exit 1
 fi
 if [ $1 = "unlock" ]; then
  activator send com.giorgioiavicoli.passby.unlock
  echo Unlocking device
+ exit 1
 fi
 if [ $1 = "back" ]; then
  activator send libactivator.system.back
  echo Went back
+ exit 1
 fi
-if [ -z $1 ]; then
- echo You must specify a command, type "nimbus help" for a list of commands
+if [ $1 = "current-app" ]; then
+ activator current-app
+ exit 1
 fi
+if [ $1 = "media" ] ; then 
+if [ -z $2 ]; then
+ echo You must specify a media command, type "nimbus media help" for a list of commands
+ exit 1
+fi
+if [ $2 = "previous" ]; then
+activator send libactivator.ipod.previous-track
+ exit 1
+fi
+if [ $2 = "next" ]; then
+activator send libactivator.ipod.next-track
+ exit 1
+fi
+if [ $2 = "play" ]; then
+activator send libactivator.ipod.resume-playback
+ exit 1
+fi
+if [ $2 = "pause" ]; then
+activator send libactivator.ipod.pause-playback
+ exit 1
+fi
+if [ $2 = "toggle" ]; then
+activator send libactivator.ipod.toggle-playback
+ exit 1
+fi
+if [ $2 = "help" ]; then
+echo Nimbus Media Commands:
+echo toggle - toggle playback
+echo play - play current song
+echo pause - pause current song
+echo next - skip song
+echo previous - go back one song
+ exit 1
+fi
+fi
+echo Invalid Argument provided ~ $1
