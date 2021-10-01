@@ -3,7 +3,7 @@ if [ -z $1 ]; then
  echo You must specify a command, type "nimbus help" for a list of commands
  exit 1
 fi
-if [ $1 = "sleep" ]; then
+if [ $1 = "camera" ]; then
  activator send libactivator.camera.invoke-shutter
  echo Power button press simulated.
  exit 1
@@ -103,6 +103,7 @@ fi
 if [ $1 = "help" ]; then
  echo Usage: nimbus action
  echo List of actions:
+ echo camera - simulate camera shutter press (or launches camera app if not open...)
  echo sleep - simulate power button press.
  echo home - simulate homebutton press.
  echo open app.bundle.id - open app with specified bundle ID.
