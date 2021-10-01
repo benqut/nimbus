@@ -4,6 +4,11 @@ if [ -z $1 ]; then
  exit 1
 fi
 if [ $1 = "sleep" ]; then
+ activator send libactivator.camera.invoke-shutter
+ echo Power button press simulated.
+ exit 1
+fi
+if [ $1 = "sleep" ]; then
  activator send libactivator.system.sleepbutton
  echo Power button press simulated.
  exit 1
