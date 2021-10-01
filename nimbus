@@ -103,7 +103,7 @@ fi
 if [ $1 = "help" ]; then
  echo Usage: nimbus action
  echo List of actions:
- echo camera - simulate camera shutter press (or launches camera app if not open...)
+ echo camera - simulate camera shutter press or launches camera app i-f not open...
  echo sleep - simulate power button press.
  echo home - simulate homebutton press.
  echo open app.bundle.id - open app with specified bundle ID.
